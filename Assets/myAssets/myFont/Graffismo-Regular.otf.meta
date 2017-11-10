@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6efae1d60f759462a9c4e2700dff2417
+timeCreated: 1510001886
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 256
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Graffismo
+  fontNames:
+  - Graffismo
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
