@@ -18,7 +18,7 @@ var colorOverride : boolean = false;
 
 private var pink : Vector4 = Vector4(.956,.603,.756,1);
 private var blue : Vector4 = Vector4(.015,.388,.635,1);
-private var yellow : Vector4 = Vector4(1,1,0,1);
+private var yellow : Vector4 = Vector4(1,.5,0,1);
 private var black : Vector4 = Vector4(.26,.26,.26,1);
 private var orange : Vector4 = Vector4(.968,.584,.129,1);
 private var gray : Vector4 = Vector4(.65,.65,.65,1);
