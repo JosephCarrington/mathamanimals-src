@@ -38,7 +38,9 @@ static var AnimalVisible : boolean = false;
 
 
 function Start(){
-
+	var gameController : GameController = GameObject.Find("Main Camera").GetComponent("GameController");
+	Mode = gameController.currentDifficulty;
+	WhichAnimal = gameController.currentAnimal;
 	//sound stuff
 	if (matchWinHandler.Mode == 1){
 		musicHandler.SlowJamGo = true;
@@ -83,7 +85,6 @@ function Start(){
 	
 	AnimalVisible = false;
 }
-
 
 function Update () {
 //	print(MatchCelebration);
