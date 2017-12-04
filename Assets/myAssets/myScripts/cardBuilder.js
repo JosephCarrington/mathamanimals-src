@@ -13,8 +13,10 @@ private var cardPos : Vector3 = new Vector3(-4.05,1.9,8.1);
 private var secondRowPos : Vector3 = new Vector3(-4.05,0,8.1);
 private var thirdRowPos : Vector3 = new Vector3(-4.05,-1.9,8.1);
 private var xDifference : float = 1.35;
+var gameController : GameController;
 
 function Start(){
+ 	gameController = GameObject.Find("Main Camera").GetComponent("GameController");
 
 	cardArrayRandom = new Vector3[20];
 	
@@ -90,7 +92,7 @@ function SetRandCardArray(){
 		var randomPickCards = Random.Range(0,cardArray.Length);
 		cardArrayRandom2[n] = cardArray[randomPickCards];
 		cardArrayRandom2[n+1] = cardArray[randomPickCards];
-		if (Globals.FlipFlopFun){
+		if (gameController.flipFlop){
 			cardArrayRandom2[n+1].z = 1;
 		}
 		
