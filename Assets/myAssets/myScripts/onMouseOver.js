@@ -45,12 +45,16 @@ function Update () {
 }
 
 function OnMouseOver () {
-if (scriptEnabled){
-   transform.localScale = Vector3(scaleNew.x + scalePulseCount,scaleNew.y + scalePulseCount,scaleNew.z + scalePulseCount);
-   transform.position.z = originalPos.z -.1;
-   //Instantiate (circlePrefab,transform.position,Quaternion.identity);
-   //Instantiate (starsPrefab,transform.position,Quaternion.identity);
-}
+	var gameController : GameController = GameObject.Find("Main Camera").GetComponent("GameController");
+	if(!gameController.paused) {
+
+		if (scriptEnabled){
+		   transform.localScale = Vector3(scaleNew.x + scalePulseCount,scaleNew.y + scalePulseCount,scaleNew.z + scalePulseCount);
+		   transform.position.z = originalPos.z -.1;
+		   //Instantiate (circlePrefab,transform.position,Quaternion.identity);
+		   //Instantiate (starsPrefab,transform.position,Quaternion.identity);
+		}
+	}
 }
 
 function OnMouseExit () {

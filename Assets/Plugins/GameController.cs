@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
@@ -11,6 +12,7 @@ public class GameController : MonoBehaviour {
 	public static int currentDifficulty = 1;
 	public static int currentAnimal = 1;
 	public static bool flipFlop = false;
+	public bool paused = false;
 
 	void Awake() {
 		if (instance == null) {
@@ -20,6 +22,7 @@ public class GameController : MonoBehaviour {
 		}
 
 		DontDestroyOnLoad (gameObject);
+
 	}
 
 
@@ -39,10 +42,23 @@ public class GameController : MonoBehaviour {
 		StartCoroutine(Load(sceneName));
 	}
 
+	public void Unpause() {
+		paused = false;
+	}
+
+	public void Pause() {
+		paused = true;
+	}
+
 	IEnumerator Load(string sceneName) {
 		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync (sceneName);
 		while (!asyncLoad.isDone) {
 			yield return null;
+		}
+		if (sceneName == "Match" && currentDifficulty == 1) {
+			Pause ();
+			GameObject.Find ("Canvas").GetComponent<Canvas> ().worldCamera = gameObject.GetComponent<Camera> ();
+			GameObject.Find ("Canvas").SendMessage ("DisplayTutorialForAnimal", currentAnimal);
 		}
 	}
 }

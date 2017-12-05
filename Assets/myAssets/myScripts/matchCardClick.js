@@ -110,9 +110,13 @@ function Update () {
 
 	prevMatchWinHandlerMatch = matchWinHandler.Match;
 }//end update
+	
 
 function OnMouseDown(){
-
+	var gameController : GameController = GameObject.Find("Main Camera").GetComponent("GameController");
+	if(gameController.paused) {
+		return;
+	}
 	if ((matchWinHandler.TurnNum == 0 || matchWinHandler.TurnNum == 1) && !matchWinHandler.MatchCelebration && matchWinHandler.TurnNum != 3
 		&& matchWinHandler.PlayerTurn && !flipped && canFlip && !matchWinHandler.AnimalVisible){
 		OnMouseDownFunction();
